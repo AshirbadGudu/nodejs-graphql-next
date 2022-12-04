@@ -25,6 +25,7 @@ export default function Home() {
   const [cId, setCID] = useState("");
   const [deleteClient] = useMutation(DELETE_CLIENT, {
     variables: { id: cId },
+    refetchQueries: [{ query: GET_CLIENTS }],
   });
   const { loading, error, data } = useQuery(GET_CLIENTS);
   if (error) return <pre>{JSON.stringify(error, null, 2)}</pre>;
