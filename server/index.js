@@ -8,10 +8,10 @@ const port = process.env.PORT || 3999;
 const app = express();
 
 app.use(
-  "graphql",
+  "/graphql",
   graphqlHTTP({
     schema,
-    graphiql: process.env.DEV === "DEV",
+    graphiql: process.env.NODE_ENV === "DEV",
   })
 );
 
